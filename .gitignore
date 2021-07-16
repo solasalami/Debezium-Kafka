@@ -1,0 +1,5 @@
+debezium-kafka/instantclient/
+zookeeper/
+kafka-logs/
+debezium-jmx-exporter/instantclient/
+debezium-jmx-exporter/instantclient_18c/
