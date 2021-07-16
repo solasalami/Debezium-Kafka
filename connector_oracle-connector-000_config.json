@@ -1,0 +1,20 @@
+{
+  "name": "oracle-connector-000",
+  "config": {
+    "connector.class": "io.debezium.connector.oracle.OracleConnector",
+    "tasks.max": "1",
+    "database.hostname": "192.168.1.23",
+    "database.port": "1821",
+    "database.user": "dbzuser",
+    "database.password": "dbz",
+    "database.server.name": "OSALAMI",
+    "database.dbname": "ORCLCDB",
+    "database.out.server.name": "dbzxout",
+    "snapshot.mode": "initial",
+    "database.history.kafka.bootstrap.servers": "kafka:9092",
+    "database.history.kafka.topic": "DEBEZIUM.ORACLE",
+    "table.include.list": "DEBEZIUM.customers,DEBEZIUM.BKSLD,DEBEZIUM.BKEVE",
+    "schema.include.list": "DEBEZIUM",
+    "database.oracle.version": "12+"
+  }
+}

@@ -1,0 +1,77 @@
+curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @register-oracle.json
+
+./kafka-console-consumer.sh --topic OSALAMI.DEBEZIUM.CUSTOMERS --bootstrap-server kafka:9092  --from-beginning
+
+
+./kafka-topics.sh --list --zookeeper zookeeper:2181
+
+
+./kafka-topics.sh --list --bootstrap-server kafka:9092
+
+
+
+
+./kafka-console-consumer.sh --topic TestTopic --bootstrap-server kafka:9092  --from-beginning
+
+
+
+./kafka-console-producer.sh --topic TestTopic --bootstrap-server kafka:9092
+
+
+./kafka-topics.sh --create --topic TestTopic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1
+
+
+./kafka-console-producer.sh --topic TestTopic --bootstrap-server kafka:9092 --property parse.key=true --property key.separator=":"
+
+
+./kafka-console-consumer.sh --topic my-topic --bootstrap-server kafka:9092  --from-beginning
+
+
+./kafka-console-consumer.sh --topic my-topic --bootstrap-server kafka:9092 \
+ --from-beginning \
+ --property print.key=true \
+ --property key.separator=":"
+
+
+ Kafka CAT Consumer Mode
+
+ kafkacat -b kafka:9092 -t OSALAMI.DEBEZIUM.BKEVE
+
+
+
+ kafkacat -b kafka:9092 -t new_topic -P
+
+
+
+{
+  "id": 121,
+  "name": "Tunery",
+  "age": "78"
+}
+
+
+CREATE STREAM PEOPLE_JSON (ID BIGINT, NAME STRING) WITH (VALUE_FORMAT='JSON', KAFKA_TOPIC='JsonTopic');
+
+CREATE STREAM ID_JSON (VALUE.PAYLOAD.AFTER.ID BIGINT) WITH (VALUE_FORMAT='JSON', KAFKA_TOPIC='OSALAMI.DEBEZIUM.CUSTOMERS');
+
+
+CREATE STREAM TESTING_VIEW
+   (Talue varchar)
+   WITH (KAFKA_TOPIC='new-topic', VALUE_FORMAT='AVRO');
+
+Rabbit MQ
+
+   docker run -d --hostname osalami-rabbit --name rabbitMQ -p 20443:15672 -p 5672:5672 -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=password2$ rabbitmq:3-management
+
+
+
+rm ./kafka-logs/meta.properties; docker-compose down 
+docker-compose up -d
+
+   
+
+   DEBEZIUM.ORACLE
+   OSALAMI
+   OSALAMI.DEBEZIUM.BKEVE
+   OSALAMI.DEBEZIUM.BKSLD
+   OSALAMI.DEBEZIUM.CUSTOMERS
