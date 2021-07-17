@@ -75,3 +75,12 @@ docker-compose up -d
    OSALAMI.DEBEZIUM.BKEVE
    OSALAMI.DEBEZIUM.BKSLD
    OSALAMI.DEBEZIUM.CUSTOMERS
+
+
+   LOGMINER connectors
+
+   {"name":"oracle-connector-201","config":{"connector.class":"io.debezium.connector.oracle.OracleConnector","tasks.max":"1","database.server.name":"ORCL","database.hostname":"","database.port":"1521","database.user":"ADMIN","database.password":"","database.dbname":"ORCL","database.history.kafka.bootstrap.servers":"kafka:9092","database.history.kafka.topic":"DEBEZIUM.ORACLE","schema.include.list": "ADMIN","table.include.list":"ADMIN.CUSTOMER","database.oracle.version":"12+","database.connection.adapter":"logminer","snapshot.mode":"initial"}}
+
+   SetUp
+   
+   https://docs.confluent.io/kafka-connect-oracle-cdc/current/prereqs-validation.html
