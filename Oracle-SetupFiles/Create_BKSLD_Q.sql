@@ -1,164 +1,93 @@
 --------------------------------------------------------
---  DDL for Table BKEVE_Q
+--  DDL for Table BKSLD_Q
 --------------------------------------------------------
 
-  CREATE TABLE "BKEVE_Q" 
+  CREATE TABLE "BKSLD_Q" 
    (	"ID" VARCHAR2(2000 BYTE), 
-	"EVE" VARCHAR2(200 BYTE), 
-	"AGE" VARCHAR2(200 BYTE), 
-	"DSAI" DATE, 
-	"HSAI" VARCHAR2(200 BYTE), 
-	"NCP1" VARCHAR2(200 BYTE), 
-	"NCP2" VARCHAR2(200 BYTE), 
-	"CLI1" VARCHAR2(100 BYTE), 
-	"CLI2" VARCHAR2(100 BYTE), 
-	"DEV1" VARCHAR2(20 BYTE), 
-	"DEV2" VARCHAR2(20 BYTE), 
-	"NOMP" VARCHAR2(2000 BYTE), 
-	"ETA" VARCHAR2(20 BYTE), 
-	"NAT" VARCHAR2(50 BYTE), 
-	"AGSA" VARCHAR2(50 BYTE), 
-	"COLUMN1" VARCHAR2(50 BYTE), 
-	"SEN1" VARCHAR2(10 BYTE), 
-	"SEN2" VARCHAR2(10 BYTE), 
-	"COLUMN2" DATE, 
-	"DVA2" DATE, 
-	"LIB1" VARCHAR2(200 BYTE), 
-	"LIB2" VARCHAR2(200 BYTE), 
-	"LIB3" VARCHAR2(200 BYTE), 
-	"MNT1" NUMBER(19,4), 
-	"MNT2" NUMBER(19,4), 
-	"OPE" VARCHAR2(100 BYTE), 
-	"AGE1" VARCHAR2(200 BYTE), 
-	"NOM1" VARCHAR2(2000 BYTE), 
-	"NOM2" VARCHAR2(2000 BYTE), 
-	"MHT" NUMBER(19,4), 
-	"MH1" NUMBER(19,4), 
-	"MHT2" NUMBER(19,4), 
-	"SOL1" NUMBER(19,4), 
-	"SOL2" NUMBER(19,4), 
-	"PSTDDATE" DATE, 
-	"RCREDATE" DATE DEFAULT sysdate, 
+	"AGE" VARCHAR2(20 BYTE), 
+	"DEV" VARCHAR2(20 BYTE), 
+	"NCP" VARCHAR2(100 BYTE), 
+	"SUF" VARCHAR2(100 BYTE), 
+	"DCO" DATE, 
+	"CLI" VARCHAR2(100 BYTE), 
+	"SDE" NUMBER(19,4), 
+	"RCRE_DATE" DATE DEFAULT sysdate, 
 	"OPCODE" VARCHAR2(20 BYTE), 
-	"EXTRACTTIME" DATE
+	"EXTRACTTIME" DATE, 
+	"ACTIVE" VARCHAR2(20 BYTE) DEFAULT 'Y'
    ) SEGMENT CREATION DEFERRED 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
  NOCOMPRESS LOGGING
   TABLESPACE "USERS" ;
-REM INSERTING into BKEVE_Q
-SET DEFINE OFF;
 --------------------------------------------------------
---  DDL for Index BKEVE_Q_PK
+--  DDL for Index BKSLD_Q_PK
 --------------------------------------------------------
 
-  CREATE UNIQUE INDEX "BKEVE_Q_PK" ON "BKEVE_Q" ("ID") 
+  CREATE UNIQUE INDEX "BKSLD_Q_PK" ON "BKSLD_Q" ("ID") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Index BKEVE_Q_INDEX1_OPCODE
+--  DDL for Index BKSLD_Q_INDEX1_RCRE_DATE
 --------------------------------------------------------
 
-  CREATE INDEX "BKEVE_Q_INDEX1_OPCODE" ON "BKEVE_Q" ("OPCODE") 
+  CREATE INDEX "BKSLD_Q_INDEX1_RCRE_DATE" ON "BKSLD_Q" ("RCRE_DATE") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Index BKEVE_Q_INDEX1_CLI1
+--  DDL for Index BKSLD_Q_INDEX1_AGE
 --------------------------------------------------------
 
-  CREATE INDEX "BKEVE_Q_INDEX1_CLI1" ON "BKEVE_Q" ("CLI1") 
+  CREATE INDEX "BKSLD_Q_INDEX1_AGE" ON "BKSLD_Q" ("AGE") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Index BKEVE_Q_INDEX1_CLI2
+--  DDL for Index BKSLD_Q_INDEX1_DCO
 --------------------------------------------------------
 
-  CREATE INDEX "BKEVE_Q_INDEX1_CLI2" ON "BKEVE_Q" ("CLI2") 
+  CREATE INDEX "BKSLD_Q_INDEX1_DCO" ON "BKSLD_Q" ("DCO") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Index BKEVE_Q_INDEX1_DEV1
+--  DDL for Index BKSLD_Q_INDEX1_DEV
 --------------------------------------------------------
 
-  CREATE INDEX "BKEVE_Q_INDEX1_DEV1" ON "BKEVE_Q" ("DEV1") 
+  CREATE INDEX "BKSLD_Q_INDEX1_DEV" ON "BKSLD_Q" ("DEV") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Index BKEVE_Q_INDEX1_DEV2
+--  DDL for Index BKSLD_Q_INDEX_NCP
 --------------------------------------------------------
 
-  CREATE INDEX "BKEVE_Q_INDEX1_DEV2" ON "BKEVE_Q" ("DEV2") 
+  CREATE UNIQUE INDEX "BKSLD_Q_INDEX_NCP" ON "BKSLD_Q" ("NCP") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Index BKEVE_Q_INDEX1_EVE
+--  DDL for Index BKSLD_Q_INDEX1_EXTRACTTIME
 --------------------------------------------------------
 
-  CREATE INDEX "BKEVE_Q_INDEX1_EVE" ON "BKEVE_Q" ("EVE") 
+  CREATE INDEX "BKSLD_Q_INDEX1_EXTRACTTIME" ON "BKSLD_Q" ("EXTRACTTIME") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Index BKEVE_Q_INDEX1_NCP1
+--  DDL for Index BKSLD_Q_INDEX1_OPCODE
 --------------------------------------------------------
 
-  CREATE INDEX "BKEVE_Q_INDEX1_NCP1" ON "BKEVE_Q" ("NCP1") 
+  CREATE INDEX "BKSLD_Q_INDEX1_OPCODE" ON "BKSLD_Q" ("OPCODE") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Index BKEVE_Q_INDEX1_NCP2
+--  DDL for Index BKSLD_Q_INDEX1_ACTIVE
 --------------------------------------------------------
 
-  CREATE INDEX "BKEVE_Q_INDEX1_NCP2" ON "BKEVE_Q" ("NCP2") 
+  CREATE INDEX "BKSLD_Q_INDEX1_ACTIVE" ON "BKSLD_Q" ("ACTIVE") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Index BKEVE_Q_INDEX1_PSTDDATE
+--  Constraints for Table BKSLD_Q
 --------------------------------------------------------
 
-  CREATE INDEX "BKEVE_Q_INDEX1_PSTDDATE" ON "BKEVE_Q" ("PSTDDATE") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Index BKEVE_Q_INDEX2_AGE
---------------------------------------------------------
-
-  CREATE INDEX "BKEVE_Q_INDEX2_AGE" ON "BKEVE_Q" ("AGE") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Index BKEVE_Q_INDEX1_EXTRACTIME
---------------------------------------------------------
-
-  CREATE INDEX "BKEVE_Q_INDEX1_EXTRACTIME" ON "BKEVE_Q" ("EXTRACTTIME") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Index BKEVE_Q_INDEX1_DSAI
---------------------------------------------------------
-
-  CREATE INDEX "BKEVE_Q_INDEX1_DSAI" ON "BKEVE_Q" ("DSAI") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Index BKEVE_Q_INDEX1_ETA
---------------------------------------------------------
-
-  CREATE INDEX "BKEVE_Q_INDEX1_ETA" ON "BKEVE_Q" ("ETA") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Index BKEVE_Q_INDEX1_NAT
---------------------------------------------------------
-
-  CREATE INDEX "BKEVE_Q_INDEX1_NAT" ON "BKEVE_Q" ("NAT") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  Constraints for Table BKEVE_Q
---------------------------------------------------------
-
-  ALTER TABLE "BKEVE_Q" MODIFY ("ID" NOT NULL ENABLE);
-  ALTER TABLE "BKEVE_Q" MODIFY ("EVE" NOT NULL ENABLE);
-  ALTER TABLE "BKEVE_Q" MODIFY ("PSTDDATE" NOT NULL ENABLE);
-  ALTER TABLE "BKEVE_Q" ADD CONSTRAINT "BKEVE_Q_PK" PRIMARY KEY ("ID")
+  ALTER TABLE "BKSLD_Q" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "BKSLD_Q" ADD CONSTRAINT "BKSLD_Q_PK" PRIMARY KEY ("ID")
   USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
   TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "BKSLD_Q" MODIFY ("SDE" NOT NULL ENABLE);

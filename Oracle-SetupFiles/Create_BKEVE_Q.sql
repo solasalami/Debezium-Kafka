@@ -40,7 +40,8 @@
 	"PSTDDATE" DATE, 
 	"RCREDATE" DATE DEFAULT sysdate, 
 	"OPCODE" VARCHAR2(20 BYTE), 
-	"EXTRACTTIME" DATE
+	"EXTRACTTIME" DATE, 
+	"ACTIVE" VARCHAR2(20 BYTE) DEFAULT 'Y'
    ) SEGMENT CREATION DEFERRED 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
  NOCOMPRESS LOGGING
@@ -148,6 +149,13 @@
 --------------------------------------------------------
 
   CREATE INDEX "BKEVE_Q_INDEX1_NAT" ON "BKEVE_Q" ("NAT") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index BKEVE_Q_INDEX1_ACTIVE
+--------------------------------------------------------
+
+  CREATE INDEX "BKEVE_Q_INDEX1_ACTIVE" ON "BKEVE_Q" ("ACTIVE") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   TABLESPACE "USERS" ;
 --------------------------------------------------------
