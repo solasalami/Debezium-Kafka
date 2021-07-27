@@ -86,3 +86,8 @@ docker-compose up -d
    SetUp
 
    https://docs.confluent.io/kafka-connect-oracle-cdc/current/prereqs-validation.html
+
+
+   Create Network
+
+   docker network create alert-network

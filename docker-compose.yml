@@ -142,3 +142,7 @@ services:
       - ksqldb-server
     entrypoint: /bin/sh
     tty: true
+networks:
+  default:
+    external: true
+    name: alert-network
