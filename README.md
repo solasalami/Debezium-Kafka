@@ -16,7 +16,7 @@ We need following components to collect and present Debezium metrics:
 
 ```
 export DEBEZIUM_VERSION=1.4
-docker-compose up --build
+docker-compose -d up --build
 
 # Initialize database and insert test data
 cat inventory.sql | docker exec -i monitoring_sqlserver_1 bash -c '/opt/mssql-tools/bin/sqlcmd -U sa -P $SA_PASSWORD'
